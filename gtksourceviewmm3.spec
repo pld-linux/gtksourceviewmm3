@@ -5,12 +5,12 @@
 Summary:	A C++ binding of GtkSourceView3
 Summary(pl.UTF-8):	Wiązania C++ dla GtkSourceView3
 Name:		gtksourceviewmm3
-Version:	3.0.0
+Version:	3.2.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceviewmm/3.0/gtksourceviewmm-%{version}.tar.bz2
-# Source0-md5:	a3d6988555f39e59094612e40f0564b9
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceviewmm/3.2/gtksourceviewmm-%{version}.tar.xz
+# Source0-md5:	4ddec81dae02d0681db3ca131a42c59e
 URL:		http://www.gnome.org/projects/gtksourceviewmm/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
@@ -20,12 +20,16 @@ BuildRequires:	cairomm-devel
 BuildRequires:	pangomm-devel
 BuildRequires:	atkmm-devel
 BuildRequires:	libsigc++-devel
-BuildRequires:	gtkmm3-devel >= 3.0.0
-BuildRequires:	gtksourceview3-devel >= 3.0.0
+BuildRequires:	gtkmm3-devel >= 3.2.0
+BuildRequires:	gtksourceview3-devel >= 3.2.0
 BuildRequires:	libtool
 BuildRequires:	mm-common >= 0.9.5
 BuildRequires:	pkgconfig
-Requires(post,postun):	/sbin/ldconfig
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+Requires:	glibmm >= 2.28.0
+Requires:	gtkmm3 >= 3.2.0
+Requires:	gtksourceview3 >= 3.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,8 +47,9 @@ Summary:	Header files for GtkSourceViewMM3 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GtkSourceViewMM3
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtkmm3-devel >= 3.0.0
-Requires:	gtksourceview3-devel >= 3.0.0
+Requires:	glibmm-devel >= 2.28.0
+Requires:	gtkmm3-devel >= 3.2.0
+Requires:	gtksourceview3-devel >= 3.2.0
 
 %description devel
 Header files for GtkSourceViewMM3 library.
