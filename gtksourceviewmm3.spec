@@ -6,7 +6,7 @@ Summary:	A C++ binding of GtkSourceView3
 Summary(pl.UTF-8):	Wiązania C++ dla GtkSourceView3
 Name:		gtksourceviewmm3
 Version:	3.2.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceviewmm/3.2/gtksourceviewmm-%{version}.tar.xz
