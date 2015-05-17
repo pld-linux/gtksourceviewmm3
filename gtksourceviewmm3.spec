@@ -1,16 +1,17 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# don't generate documentation with doxygen
+%bcond_without	static_libs	# static library
 
 Summary:	A C++ binding of GtkSourceView3
 Summary(pl.UTF-8):	Wiązania C++ dla GtkSourceView3
 Name:		gtksourceviewmm3
-Version:	3.2.0
-Release:	5
+Version:	3.12.0
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceviewmm/3.2/gtksourceviewmm-%{version}.tar.xz
-# Source0-md5:	4ddec81dae02d0681db3ca131a42c59e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceviewmm/3.12/gtksourceviewmm-%{version}.tar.xz
+# Source0-md5:	3caa60a6ef682ece3f489a4be4761462
 URL:		http://www.gnome.org/projects/gtksourceviewmm/
 BuildRequires:	atkmm-devel
 BuildRequires:	autoconf >= 2.62
@@ -19,7 +20,7 @@ BuildRequires:	cairomm-devel
 %{?with_apidocs:BuildRequires:	doxygen}
 BuildRequires:	glibmm-devel >= 2.28.0
 BuildRequires:	gtkmm3-devel >= 3.2.0
-BuildRequires:	gtksourceview3-devel >= 3.2.0
+BuildRequires:	gtksourceview3-devel >= 3.12.0
 BuildRequires:	libsigc++-devel
 BuildRequires:	libtool
 BuildRequires:	mm-common >= 0.9.5
@@ -29,7 +30,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glibmm >= 2.28.0
 Requires:	gtkmm3 >= 3.2.0
-Requires:	gtksourceview3 >= 3.2.0
+Requires:	gtksourceview3 >= 3.12.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,7 +50,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glibmm-devel >= 2.28.0
 Requires:	gtkmm3-devel >= 3.2.0
-Requires:	gtksourceview3-devel >= 3.2.0
+Requires:	gtksourceview3-devel >= 3.12.0
 
 %description devel
 Header files for GtkSourceViewMM3 library.
@@ -77,7 +78,6 @@ Group:		Documentation
 BuildArch:	noarch
 %endif
 
-
 %description apidocs
 GtkSourceViewMM3 API documentation.
 
@@ -94,9 +94,9 @@ Dokumentacja API GtkSourceViewMM3.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-silent-rules \
 	%{__enable_disable apidocs documentation} \
-	--enable-static
+	--disable-silent-rules \
+	%{?with_static_libs:--enable-static}
 %{__make}
 
 %install
@@ -125,9 +125,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/gtksourceviewmm-3.0
 %{_pkgconfigdir}/gtksourceviewmm-3.0.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgtksourceviewmm-3.0.a
+%endif
 
 %if %{with apidocs}
 %files apidocs
