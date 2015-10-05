@@ -6,31 +6,31 @@
 Summary:	A C++ binding of GtkSourceView3
 Summary(pl.UTF-8):	Wiązania C++ dla GtkSourceView3
 Name:		gtksourceviewmm3
-Version:	3.12.0
+Version:	3.18.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceviewmm/3.12/gtksourceviewmm-%{version}.tar.xz
-# Source0-md5:	3caa60a6ef682ece3f489a4be4761462
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceviewmm/3.18/gtksourceviewmm-%{version}.tar.xz
+# Source0-md5:	f00bc014a01299c77e1ebf7b932aad9b
 URL:		http://www.gnome.org/projects/gtksourceviewmm/
-BuildRequires:	atkmm-devel
+BuildRequires:	atkmm-devel >= 1.6
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	cairomm-devel
+BuildRequires:	cairomm-devel >= 1.0
 %{?with_apidocs:BuildRequires:	doxygen}
-BuildRequires:	glibmm-devel >= 2.28.0
-BuildRequires:	gtkmm3-devel >= 3.2.0
-BuildRequires:	gtksourceview3-devel >= 3.12.0
+BuildRequires:	glibmm-devel >= 2.46.1
+BuildRequires:	gtkmm3-devel >= 3.18.0
+BuildRequires:	gtksourceview3-devel >= 3.18.0
 BuildRequires:	libsigc++-devel
 BuildRequires:	libtool
-BuildRequires:	mm-common >= 0.9.5
-BuildRequires:	pangomm-devel
+BuildRequires:	mm-common >= 0.9.8
+BuildRequires:	pangomm-devel >= 1.4
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	glibmm >= 2.28.0
-Requires:	gtkmm3 >= 3.2.0
-Requires:	gtksourceview3 >= 3.12.0
+Requires:	glibmm >= 2.46.1
+Requires:	gtkmm3 >= 3.18.0
+Requires:	gtksourceview3 >= 3.18.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,9 +48,9 @@ Summary:	Header files for GtkSourceViewMM3 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GtkSourceViewMM3
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glibmm-devel >= 2.28.0
-Requires:	gtkmm3-devel >= 3.2.0
-Requires:	gtksourceview3-devel >= 3.12.0
+Requires:	glibmm-devel >= 2.46.1
+Requires:	gtkmm3-devel >= 3.18.0
+Requires:	gtksourceview3-devel >= 3.18.0
 
 %description devel
 Header files for GtkSourceViewMM3 library.
