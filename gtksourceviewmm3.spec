@@ -74,9 +74,7 @@ Statyczna biblioteka GtkSourceViewMM3.
 Summary:	GtkSourceViewMM3 API documentation
 Summary(pl.UTF-8):	Dokumentacja API GtkSourceViewMM3
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 GtkSourceViewMM3 API documentation.
